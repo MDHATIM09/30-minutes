@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>30-MINUTES - Location Access</title>
+</head>
+<body>
+  <h2>Please allow location access to continue</h2>
+  <p>This helps us show nearby stores within 4km radius only.</p>
+
+  <script>
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+
+          // Save in localStorage
+          localStorage.setItem("userLat", lat);
+          localStorage.setItem("userLng", lng);
+
+          // Redirect to main homepage or gender selection
+          window.location.href = "gender.html";
+        },
+        (error) => {
+          alert("⚠️ Location access is required to use this service.");
+          // Stay on same page or give retry option
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  </script>
+</body>
+</html>

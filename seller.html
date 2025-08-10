@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join as Seller - 30-MINUTES</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+    <div class="text-xl font-bold">30-MINUTES</div>
+    <a href="gender.html" class="font-medium text-blue-600">Back to Home</a>
+  </nav>
+
+  <!-- Seller Form -->
+  <main class="flex-grow container mx-auto px-4 py-6">
+    <h2 class="text-2xl font-bold mb-6 text-center">Join as a Seller</h2>
+
+    <form class="max-w-2xl mx-auto bg-white shadow-lg rounded-xl p-6 space-y-4">
+      <div>
+        <label class="block font-medium mb-1">Store Name</label>
+        <input type="text" class="w-full border px-3 py-2 rounded" placeholder="e.g. Trendy Styles" required>
+      </div>
+
+      <div>
+        <label class="block font-medium mb-1">Owner Name</label>
+        <input type="text" class="w-full border px-3 py-2 rounded" placeholder="e.g. Aamir Khan" required>
+      </div>
+
+      <div>
+        <label class="block font-medium mb-1">Contact Email</label>
+        <input type="email" class="w-full border px-3 py-2 rounded" placeholder="e.g. store@email.com" required>
+      </div>
+
+      <div>
+        <label class="block font-medium mb-1">Phone Number</label>
+        <input type="tel" class="w-full border px-3 py-2 rounded" placeholder="e.g. 9876543210" required>
+      </div>
+
+      <div>
+        <label class="block font-medium mb-1">Business Address</label>
+        <textarea class="w-full border px-3 py-2 rounded" placeholder="Full address of your store" required></textarea>
+      </div>
+
+      <div>
+        <label class="block font-medium mb-1">Number of Products</label>
+        <input type="number" class="w-full border px-3 py-2 rounded" min="1" placeholder="e.g. 50" required>
+      </div>
+
+      <!-- <div>
+        <label class="block font-medium mb-1">Do you have SKU system?</label>
+        <select class="w-full border px-3 py-2 rounded" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div> -->
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Submit</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center py-4 shadow-inner mt-6">
+    <p class="text-gray-600">&copy; 2025 30-MINUTES. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

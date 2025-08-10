@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Urban Style - 30-MINUTES</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="gender.html" class="text-xl font-bold">30-MINUTES</a>
+
+      <!-- Desktop Links -->
+      <div class="hidden sm:flex space-x-6 items-center">
+        <input type="text" placeholder="Search" class="px-3 py-1 border rounded-xl">
+        <a href="cart.html" class="font-medium">Cart</a>
+        <a href="signin.html" class="font-medium">Sign In</a>
+        <a href="store.html" class="font-medium">Join as Seller</a>
+      </div>
+
+      <!-- Mobile Hamburger + Cart -->
+      <div class="sm:hidden flex items-center space-x-3">
+        <a href="cart.html" class="text-gray-700">
+          <i class="fas fa-shopping-cart fa-lg"></i>
+        </a>
+        <button id="menu-btn" class="flex flex-col space-y-1 focus:outline-none">
+          <span class="block w-6 h-0.5 bg-black"></span>
+          <span class="block w-6 h-0.5 bg-black"></span>
+          <span class="block w-6 h-0.5 bg-black"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden flex-col space-y-2 px-4 pb-4">
+      <a href="cart.html" class="block font-medium bg-gray-100 px-3 py-2 rounded">Cart</a>
+      <a href="signin.html" class="block font-medium bg-gray-100 px-3 py-2 rounded">Sign In</a>
+      <a href="store.html" class="block font-medium bg-gray-100 px-3 py-2 rounded">Join as Seller</a>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="flex-grow container mx-auto px-4 py-6">
+    <h2 class="text-2xl font-bold text-center mb-4">Urban Style - Products</h2>
+    <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+
+      <!-- Example Product Card (repeat as needed) -->
+       <!-- Product Card -->
+<div class="bg-white p-3 rounded-lg shadow text-center">
+  <img src="images.jpeg" 
+       class="h-40 w-full object-cover rounded-lg mb-2 cursor-pointer" 
+       onclick="openGallery(['images.jpeg','imgmen.png','images3.jpeg'])" />
+  <p class="font-semibold">Denim Jacket</p>
+  <p class="text-gray-600 text-sm">₹1199</p>
+  <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+    <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" 
+            class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+      + Add to Cart
+    </button>
+    <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" 
+            class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+      Buy Now
+    </button>
+  </div>
+</div>
+
+<!-- Modal Gallery -->
+<div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50 p-4">
+  <div class="bg-white p-4 rounded-lg w-full max-w-5xl flex flex-col md:flex-row gap-4 relative">
+    
+    <!-- Thumbnails -->
+    <div id="thumbsContainer" class="flex md:flex-col gap-2 overflow-x-auto md:overflow-y-auto max-h-[500px] md:w-20">
+      <!-- Thumbnails will be added dynamically -->
+    </div>
+    
+    <!-- Main Image -->
+    <div class="flex-1 flex items-center justify-center">
+      <img id="mainImage" class="w-full max-h-[500px] object-contain rounded" />
+    </div>
+    
+    <!-- Close Button -->
+    <button onclick="closeGallery()" class="absolute top-2 right-2 text-black bg-white rounded-full w-8 h-8 flex items-center justify-center text-2xl font-bold shadow">&times;</button>
+  </div>
+</div>
+      <div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div>
+      <div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="imgmen.png" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">T-shirts</p>
+        <p class="text-gray-600 text-sm">₹299</p>
+        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+          <button onclick="addToCart('T-shirts', 299, 'imgmen.png')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+            + Add to Cart
+          </button>
+          <button onclick="buyNow('T-shirts',299, 'images/imgmen.png')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Buy Now
+          </button>
+        </div>
+      </div>
+
+      <!-- More product cards here... -->
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white mt-12">
+    <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">30-MINUTES</h3>
+        <p class="text-gray-400">Fashion from local stores delivered in just 30 minutes across Delhi.</p>
+        <div class="flex space-x-4 mt-4">
+          <a href="#"><img src="facebook.svg" alt="Facebook" class="h-5"></a>
+          <a href="#"><img src="instagram.svg" alt="Instagram" class="h-5"></a>
+          <a href="#"><img src="twitter.svg" alt="Twitter" class="h-5"></a>
+          <a href="#"><img src="youtube.svg" alt="YouTube" class="h-5"></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Join as Seller</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Customer Support</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Order Tracking</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+        <p class="text-gray-400">📍 Sector 18, Noida, Delhi NCR</p>
+        <p class="text-gray-400">📞 +91 9876543210</p>
+        <p class="text-gray-400">✉ support@30minutes.com</p>
+        <a href="#" class="inline-block mt-3 bg-green-500 text-white px-4 py-2 rounded-lg">WhatsApp Support</a>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 text-center py-4 text-gray-500 text-sm">
+      © 2025 30-MINUTES. All rights reserved. | Privacy Policy | Terms of Service | Cookie Policy
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const currentStoreName = "fashionhub";
+
+    function addToCart(name, price, image) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let cartStore = localStorage.getItem("cartStore");
+
+      if (cart.length > 0 && cartStore && cartStore !== currentStoreName) {
+        if (!confirm("Cart already contains items from another store. It will be cleared. Continue?")) {
+          return;
+        }
+        cart = [];
+      }
+
+      const existingItemIndex = cart.findIndex(item => item.name === name && item.image === image);
+      if (existingItemIndex !== -1) {
+        cart[existingItemIndex].quantity += 1;
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem("cartStore", currentStoreName);
+      alert(name + " added to cart!");
+    }
+
+    function buyNow(name, price, image) {
+      const product = [{ name, price, image, quantity: 1 }];
+      localStorage.setItem("cart", JSON.stringify(product));
+      localStorage.setItem("cartStore", currentStoreName);
+      window.location.href = "checkout.html";
+    }
+
+    // Menu Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    function openGallery(images) {
+  const modal = document.getElementById('galleryModal');
+  const thumbsContainer = document.getElementById('thumbsContainer');
+  const mainImage = document.getElementById('mainImage');
+
+  thumbsContainer.innerHTML = ''; // Clear old thumbnails
+  images.forEach((src, i) => {
+    const thumb = document.createElement('img');
+    thumb.src = src;
+    thumb.className = 'w-16 h-16 object-cover cursor-pointer rounded border';
+    thumb.onclick = () => mainImage.src = src;
+    thumbsContainer.appendChild(thumb);
+    if (i === 0) mainImage.src = src; // First image is main
+  });
+
+  modal.classList.remove('hidden');
+}
+
+function closeGallery() {
+  document.getElementById('galleryModal').classList.add('hidden');
+  document.getElementById('mainImage').src = ''; // Reset
+  document.getElementById('thumbsContainer').innerHTML = ''; // Reset
+}
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!-- menu.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30-MINUTES - Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between px-6 py-4 bg-white shadow">
+    <div class="text-xl font-bold">30-MINUTES</div> <!-- LOGO Placeholder -->
+    <div class="flex items-center space-x-4">
+      <input type="text" placeholder="Search..." class="border px-3 py-1 rounded-xl focus:outline-none">
+      <a href="cart.html" class="text-blue-600 font-medium">Cart</a>
+      <a href="login.html" class="text-blue-600 font-medium">Sign In</a>
+      <a href="seller.html" class="text-blue-600 font-medium">Join as Seller</a>
+    </div>
+  </nav>
+
+  <!-- Menu -->
+  <div class="flex flex-col items-center justify-center py-16 space-y-6">
+    <h1 class="text-2xl font-bold">What would you like to explore?</h1>
+    <div class="flex flex-col space-y-4 w-1/2">
+      <button onclick="goToCategories()" class="bg-green-500 text-white py-3 rounded-xl hover:bg-green-600">Shop by Categories</button>
+      <button onclick="goToStores()" class="bg-yellow-500 text-white py-3 rounded-xl hover:bg-yellow-600">Shop by Store</button>
+    </div>
+  </div>
+
+  <script>
+    function goToCategories() {
+      const gender = localStorage.getItem('selectedGender');
+      window.location.href = `categories-${gender}.html`;
+    }
+
+    function goToStores() {
+      const gender = localStorage.getItem('selectedGender');
+      window.location.href = `stores-${gender}.html`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Urban Style - 30-MINUTES</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md py-4 px-6 flex flex-col sm:flex-row justify-between items-center">
+    <div class="text-xl font-bold mb-2 sm:mb-0">30-MINUTES</div>
+    <div class="flex flex-col sm:flex-row sm:space-x-4 w-full sm:w-auto items-center">
+      <input type="text" placeholder="Search" class="px-3 py-1 border rounded-xl w-full sm:w-auto">
+      <a href="cart.html" class="font-medium mt-2 sm:mt-0">Cart</a>
+      <button class="font-medium mt-2 sm:mt-0">Sign In</button>
+      <a href="store.html" class="font-medium mt-2 sm:mt-0">Join as Seller</a>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="flex-grow container mx-auto px-4 py-6">
+    <h2 class="text-2xl font-bold text-center mb-4">Urban Style - Products</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+
+      <!-- Example Product Card -->
+      <div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex justify-center gap-2">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">+ Add to Cart</button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex justify-center gap-2">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">+ Add to Cart</button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</button>
+        </div>
+
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="imgmen.png" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">T-shirts</p>
+        <p class="text-gray-600 text-sm">₹399</p>
+        <div class="mt-2 flex justify-center gap-2">
+          <button onclick="addToCart('T-shirts', 399, 'imgmen.png')" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">+ Add to Cart</button>
+          <button onclick="buyNow('T-shirts', 399, 'imgmen.png')" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</button>
+        </div>
+
+      </div><div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex justify-center gap-2">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">+ Add to Cart</button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</button>
+        </div>
+
+      </div>
+      <div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex justify-center gap-2">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">+ Add to Cart</button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</button>
+        </div>
+
+      </div>
+      <div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex justify-center gap-2">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">+ Add to Cart</button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</button>
+        </div>
+      </div>
+      
+      <div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex justify-center gap-2">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">+ Add to Cart</button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</button>
+        </div>
+      </div>
+      <div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex justify-center gap-2">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">+ Add to Cart</button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</button>
+        </div>
+      </div>
+      <div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
+        <p class="font-semibold">Denim Jacket</p>
+        <p class="text-gray-600 text-sm">₹1199</p>
+        <div class="mt-2 flex justify-center gap-2">
+          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800">+ Add to Cart</button>
+          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</button>
+        </div>
+      </div>
+
+      <!-- Repeat similar product blocks with unique name, price, and image path -->
+      <!-- Example: Replace 'images/product.jpg' with your own image names inside the images folder -->
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white mt-12">
+    <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <!-- Logo & About -->
+      <div>
+        <h3 class="text-2xl font-bold mb-4">30-MINUTES</h3>
+        <p class="text-gray-400">Fashion from local stores delivered in just 30 minutes across Delhi.</p>
+        <div class="flex space-x-4 mt-4">
+          <a href="#"><img src="facebook.svg" alt="Facebook" class="h-5"></a>
+          <a href="#"><img src="instagram.svg" alt="Instagram" class="h-5"></a>
+          <a href="#"><img src="twitter.svg" alt="Twitter" class="h-5"></a>
+          <a href="#"><img src="youtube.svg" alt="YouTube" class="h-5"></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Join as Seller</a></li>
+        </ul>
+      </div>
+
+      <!-- Customer Support -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Customer Support</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Order Tracking</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+        <p class="text-gray-400">📍 Sector 18, Noida, Delhi NCR</p>
+        <p class="text-gray-400">📞 +91 9876543210</p>
+        <p class="text-gray-400">✉ support@30minutes.com</p>
+        <a href="#" class="inline-block mt-3 bg-green-500 text-white px-4 py-2 rounded-lg">WhatsApp Support</a>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 text-center py-4 text-gray-500 text-sm">
+      © 2025 30-MINUTES. All rights reserved. | Privacy Policy | Terms of Service | Cookie Policy
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+  const currentStoreName = "classicmen"; // 👈 yahan store ka naam likho
+
+  function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartStore = localStorage.getItem("cartStore");
+
+    // 🔁 If store doesn't match, clear cart
+    if (cart.length > 0 && cartStore && cartStore !== currentStoreName) {
+      if (!confirm("Cart already contains items from another store. It will be cleared. Continue?")) {
+        return;
+      }
+      cart = []; // clear old cart
+    }
+
+    const existingItemIndex = cart.findIndex(item => item.name === name && item.image === image);
+
+    if (existingItemIndex !== -1) {
+      cart[existingItemIndex].quantity += 1;
+    } else {
+      cart.push({ name, price, image, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cartStore", currentStoreName); // 🏷️ Save store name
+    alert(name + " added to cart!");
+  }
+
+  function buyNow(name, price, image) {
+    const product = [{ name, price, image, quantity: 1 }];
+    localStorage.setItem("cart", JSON.stringify(product));
+    localStorage.setItem("cartStore", currentStoreName); // 🏷️ Save store name
+    window.location.href = "checkout.html";
+  }
+</script>
+
+
+
+
+</body>
+</html>
