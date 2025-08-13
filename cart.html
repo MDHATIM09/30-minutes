@@ -1,21 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Your Cart - 30-MINUTES</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 p-6">
+<body class="bg-gray-100 p-4 sm:p-6">
   <h1 class="text-2xl font-bold mb-4">🛒 Your Cart</h1>
   <div id="cart-items" class="space-y-4"></div>
   <h2 id="total" class="mt-4 text-xl font-semibold">Total: ₹0</h2>
   
   <div class="mt-6">
-<button onclick="window.location.href='checkout.html'" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">Proceed to Checkout</button>
+    <button onclick="window.location.href='checkout.html'" class="w-full sm:w-auto bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">
+      Proceed to Checkout
+    </button>
   </div>
 
- <script>
+<script>
   let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
   let cartStore = localStorage.getItem("cartStore");
   let total = 0;
@@ -27,8 +29,6 @@
     if (cartItems.length === 0) {
       container.innerHTML = "<p>Your cart is empty.</p>";
       document.getElementById("total").textContent = "Total: ₹0";
-
-      // 🧹 Clear store if cart empty
       localStorage.removeItem("cartStore");
       return;
     }
@@ -41,16 +41,17 @@
 
     cartItems.forEach((item, index) => {
       const div = document.createElement("div");
-      div.className = "bg-white p-4 rounded shadow flex items-center space-x-4";
+      div.className = "bg-white p-4 rounded shadow flex flex-col sm:flex-row sm:items-center gap-4";
 
       div.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" class="w-24 h-24 object-cover rounded">
+        <img src="${item.image}" alt="${item.name}" class="w-full sm:w-24 h-40 sm:h-24 object-cover rounded">
         <div class="flex-1">
           <h3 class="font-semibold">${item.name}</h3>
-          <p>₹${item.price} x <span id="qty-${index}">${item.quantity}</span></p>
+          <p class="text-sm text-gray-600">Size: <span class="font-medium">${item.size || "Not selected"}</span></p>
+          <p class="mt-1 text-gray-700">₹${item.price} x <span id="qty-${index}">${item.quantity}</span></p>
           <div class="mt-2 space-x-2">
-            <button onclick="changeQuantity(${index}, 1)" class="px-2 py-1 bg-blue-500 text-white rounded">+</button>
-            <button onclick="changeQuantity(${index}, -1)" class="px-2 py-1 bg-red-500 text-white rounded">-</button>
+            <button onclick="changeQuantity(${index}, 1)" class="px-3 py-1 bg-blue-500 text-white rounded">+</button>
+            <button onclick="changeQuantity(${index}, -1)" class="px-3 py-1 bg-red-500 text-white rounded">-</button>
           </div>
         </div>
       `;
@@ -61,10 +62,7 @@
   }
 
   function calculateTotal() {
-    total = 0;
-    cartItems.forEach(item => {
-      total += item.price * item.quantity;
-    });
+    total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     document.getElementById("total").textContent = "Total: ₹" + total;
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }
@@ -74,17 +72,13 @@
     if (cartItems[index].quantity <= 0) {
       cartItems.splice(index, 1);
     }
-    
-    // Agar sab hata diye to store bhi hatao
     if (cartItems.length === 0) {
       localStorage.removeItem("cartStore");
     }
-
     updateCartDisplay();
   }
 
   updateCartDisplay();
 </script>
-
 </body>
 </html>
