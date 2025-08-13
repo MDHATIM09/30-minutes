@@ -7,17 +7,34 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+<style>
+  .product-description {
+  max-height: 150px; /* jitna height chahiye */
+  overflow-y: auto;  /* vertical scroll enable */
+  padding-right: 5px; /* scroll ke saath text cut na ho */
+}
+@media (min-width: 768px) {
+  /* Desktop par background fixed */
+  .your-section-class {
+    background-attachment: fixed;
+  }
+}
+
+/* Mobile me koi background-attachment property na lagao ya scroll hi rahe */
+
+
+</style>
 <body class="bg-gray-100 min-h-screen flex flex-col">
 
   <!-- Navbar -->
-  <nav class="bg-white shadow-md">
+        <nav class="bg-white shadow-md fixed top-0 w-full z-50">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
       <!-- Logo -->
       <a href="gender.html" class="text-xl font-bold">30-MINUTES</a>
 
       <!-- Desktop Links -->
       <div class="hidden sm:flex space-x-6 items-center">
-        <input type="text" placeholder="Search" class="px-3 py-1 border rounded-xl">
+        <!-- <input type="text" placeholder="Search" class="px-3 py-1 border rounded-xl"> -->
         <a href="cart.html" class="font-medium">Cart</a>
         <a href="signin.html" class="font-medium">Sign In</a>
         <a href="store.html" class="font-medium">Join as Seller</a>
@@ -37,12 +54,21 @@
     </div>
 
     <!-- Mobile Menu -->
+             <!-- <input type="text" placeholder="Search" class="px-3 py-1 border rounded-xl"> -->
+
     <div id="mobile-menu" class="hidden sm:hidden flex-col space-y-2 px-4 pb-4">
       <a href="cart.html" class="block font-medium bg-gray-100 px-3 py-2 rounded">Cart</a>
       <a href="signin.html" class="block font-medium bg-gray-100 px-3 py-2 rounded">Sign In</a>
       <a href="store.html" class="block font-medium bg-gray-100 px-3 py-2 rounded">Join as Seller</a>
     </div>
+    <input
+  type="text"
+  id="searchInput"
+  placeholder="Search products here..."
+  class="  w-full sm:w-1/2 mx-auto mb-6 px-4 py-2 border border-gray-300 rounded"/>
   </nav>
+  <div class="h-16"></div>
+
 
   <!-- Main -->
   <main class="flex-grow container mx-auto px-4 py-6">
@@ -51,10 +77,10 @@
 
       <!-- Example Product Card (repeat as needed) -->
        <!-- Product Card -->
-<div class="bg-white p-3 rounded-lg shadow text-center">
+    <div class="bg-white p-3 rounded-lg shadow text-center"> 
   <img src="images.jpeg" 
        class="h-40 w-full object-cover rounded-lg mb-2 cursor-pointer" 
-       onclick="openGallery(['images.jpeg','imgmen.png','images3.jpeg'])" />
+       onclick="openGallery(['images.jpeg','imgmen.png','images3.jpeg'], 'Denim Jacket', 1199, ['S','M','L','XL'])" />
   <p class="font-semibold">Denim Jacket</p>
   <p class="text-gray-600 text-sm">₹1199</p>
   <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
@@ -67,149 +93,31 @@
       Buy Now
     </button>
   </div>
-</div>
 
-<!-- Modal Gallery -->
-<div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50 p-4">
-  <div class="bg-white p-4 rounded-lg w-full max-w-5xl flex flex-col md:flex-row gap-4 relative">
-    
-    <!-- Thumbnails -->
-    <div id="thumbsContainer" class="flex md:flex-col gap-2 overflow-x-auto md:overflow-y-auto max-h-[500px] md:w-20">
-      <!-- Thumbnails will be added dynamically -->
-    </div>
-    
-    <!-- Main Image -->
-    <div class="flex-1 flex items-center justify-center">
-      <img id="mainImage" class="w-full max-h-[500px] object-contain rounded" />
-    </div>
-    
-    <!-- Close Button -->
-    <button onclick="closeGallery()" class="absolute top-2 right-2 text-black bg-white rounded-full w-8 h-8 flex items-center justify-center text-2xl font-bold shadow">&times;</button>
-  </div>
 </div>
-      <div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
-        <p class="font-semibold">Denim Jacket</p>
-        <p class="text-gray-600 text-sm">₹1199</p>
-        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
-          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-            + Add to Cart
-          </button>
-          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
-      </div>
-      <div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
-        <p class="font-semibold">Denim Jacket</p>
-        <p class="text-gray-600 text-sm">₹1199</p>
-        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
-          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-            + Add to Cart
-          </button>
-          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
-      </div><div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
-        <p class="font-semibold">Denim Jacket</p>
-        <p class="text-gray-600 text-sm">₹1199</p>
-        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
-          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-            + Add to Cart
-          </button>
-          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
-      </div><div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
-        <p class="font-semibold">Denim Jacket</p>
-        <p class="text-gray-600 text-sm">₹1199</p>
-        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
-          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-            + Add to Cart
-          </button>
-          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
-      </div><div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
-        <p class="font-semibold">Denim Jacket</p>
-        <p class="text-gray-600 text-sm">₹1199</p>
-        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
-          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-            + Add to Cart
-          </button>
-          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
-      </div><div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
-        <p class="font-semibold">Denim Jacket</p>
-        <p class="text-gray-600 text-sm">₹1199</p>
-        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
-          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-            + Add to Cart
-          </button>
-          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
-      </div><div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
-        <p class="font-semibold">Denim Jacket</p>
-        <p class="text-gray-600 text-sm">₹1199</p>
-        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
-          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-            + Add to Cart
-          </button>
-          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
-      </div><div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
-        <p class="font-semibold">Denim Jacket</p>
-        <p class="text-gray-600 text-sm">₹1199</p>
-        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
-          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-            + Add to Cart
-          </button>
-          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
-      </div><div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
-        <p class="font-semibold">Denim Jacket</p>
-        <p class="text-gray-600 text-sm">₹1199</p>
-        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
-          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-            + Add to Cart
-          </button>
-          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
-      </div><div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="images.jpeg" class="h-40 w-full object-cover rounded-lg mb-2" />
-        <p class="font-semibold">Denim Jacket</p>
-        <p class="text-gray-600 text-sm">₹1199</p>
-        <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
-          <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
-            + Add to Cart
-          </button>
-          <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
-      </div><div class="bg-white p-3 rounded-lg shadow text-center">
-        <img src="imgmen.png" class="h-40 w-full object-cover rounded-lg mb-2" />
+<div class="bg-white p-3 rounded-lg shadow text-center"> 
+  <img src="images.jpeg" 
+       class="h-40 w-full object-cover rounded-lg mb-2 cursor-pointer" 
+       onclick="openGallery(['images.jpeg','imgmen.png','images3.jpeg'], 'Denim Jacket', 1199, ['S','M','L','XL'])" />
+  <p class="font-semibold">tsirts </p>
+  <p class="text-gray-600 text-sm">₹1199</p>
+  <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
+    <button onclick="addToCart('Denim Jacket', 1199, 'images.jpeg')" 
+            class="w-full sm:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+      + Add to Cart
+    </button>
+    <button onclick="buyNow('Denim Jacket', 1199, 'images/denim-jacket.jpg')" 
+            class="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+      Buy Now
+    </button>
+  </div>
+
+</div>
+<div class="bg-white p-3 rounded-lg shadow text-center">
+        <img src="imgmen.png" class="h-40 w-full object-cover rounded-lg mb-2" 
+        class="h-40 w-full object-cover rounded-lg mb-2 cursor-pointer" 
+         onclick="openGallery(['images.jpeg','imgmen.png','images3.jpeg'], 'Denim Jacket', 1199, ['S','M','L','XL'])" />
+
         <p class="font-semibold">T-shirts</p>
         <p class="text-gray-600 text-sm">₹299</p>
         <div class="mt-2 flex flex-col sm:flex-row justify-center gap-2 w-full sm:w-auto">
@@ -221,6 +129,48 @@
           </button>
         </div>
       </div>
+
+
+
+<!-- Modal Gallery -->
+<div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50 p-4">
+  <div class="bg-white p-4 rounded-lg w-full max-w-5xl flex flex-col md:flex-row gap-4 relative">
+
+    <!-- Thumbnails -->
+    <div id="thumbsContainer" class="flex md:flex-col gap-2 overflow-x-auto md:overflow-y-auto max-h-[500px] md:w-20"></div>
+
+    <!-- Main Image + Details -->
+    <div class="flex-1 flex flex-col max-h-[500px] overflow-y-auto">
+      <div class="flex flex-col items-center justify-center gap-4">
+        <img id="mainImage" class="w-full max-h-[300px] object-contain rounded" />
+        <!-- Product Name & Price -->
+        <div class="text-center">
+          <p id="modalProductName" class="text-lg font-semibold"></p>
+          <p id="modalProductPrice" class="text-green-600 font-bold"></p>
+        </div>
+        <!-- Size Selection -->
+        <div id="sizeContainer" class="flex gap-2"></div>
+      </div>
+
+      <!-- Description -->
+      <!--  -->
+    </div>
+
+    <!-- Sticky Add to Cart -->
+    <div class="absolute bottom-4 right-4 left-4 md:left-auto md:right-4">
+      <button onclick="addToCartFromModal()" class="w-full md:w-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800">
+        + Add to Cart
+      </button>
+    </div>
+
+    <!-- Close Button -->
+    <button onclick="closeGallery()" class="absolute top-2 right-2 text-black bg-white rounded-full w-8 h-8 flex items-center justify-center text-2xl font-bold shadow">&times;</button>
+  </div>
+</div>
+
+        
+      
+      
 
       <!-- More product cards here... -->
 
@@ -278,70 +228,162 @@
   </footer>
 
   <!-- JavaScript -->
-  <script>
-    const currentStoreName = "fashionhub";
+ <script>
+  const currentStoreName = "fashionhub";
+  let selectedSize = null;
+  let currentProduct = { name: "", price: 0, image: "", sizes: [] };
 
-    function addToCart(name, price, image) {
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      let cartStore = localStorage.getItem("cartStore");
-
-      if (cart.length > 0 && cartStore && cartStore !== currentStoreName) {
-        if (!confirm("Cart already contains items from another store. It will be cleared. Continue?")) {
-          return;
-        }
-        cart = [];
-      }
-
-      const existingItemIndex = cart.findIndex(item => item.name === name && item.image === image);
-      if (existingItemIndex !== -1) {
-        cart[existingItemIndex].quantity += 1;
+  // Generic Add to Cart
+  function addToCart(name, price, image) {
+    if (!selectedSize) {
+      // Agar size select nahi hai to modal open karo
+      const product = findProductByName(name, price, image);
+      if (product) {
+        openGallery(product.images, name, price, product.sizes);
       } else {
-        cart.push({ name, price, image, quantity: 1 });
+        alert("Please select a size before adding to cart.");
       }
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-      localStorage.setItem("cartStore", currentStoreName);
-      alert(name + " added to cart!");
+      return;
     }
 
-    function buyNow(name, price, image) {
-      const product = [{ name, price, image, quantity: 1 }];
-      localStorage.setItem("cart", JSON.stringify(product));
-      localStorage.setItem("cartStore", currentStoreName);
-      window.location.href = "checkout.html";
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartStore = localStorage.getItem("cartStore");
+
+    if (cart.length > 0 && cartStore && cartStore !== currentStoreName) {
+      if (!confirm("Cart already contains items from another store. It will be cleared. Continue?")) {
+        return;
+      }
+      cart = [];
     }
 
-    // Menu Toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+    const existingItemIndex = cart.findIndex(item =>
+      item.name === name && item.image === image && item.size === selectedSize
+    );
 
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    function openGallery(images) {
-  const modal = document.getElementById('galleryModal');
-  const thumbsContainer = document.getElementById('thumbsContainer');
-  const mainImage = document.getElementById('mainImage');
+    if (existingItemIndex !== -1) {
+      cart[existingItemIndex].quantity += 1;
+    } else {
+      cart.push({ name, price, image, size: selectedSize, quantity: 1 });
+    }
 
-  thumbsContainer.innerHTML = ''; // Clear old thumbnails
-  images.forEach((src, i) => {
-    const thumb = document.createElement('img');
-    thumb.src = src;
-    thumb.className = 'w-16 h-16 object-cover cursor-pointer rounded border';
-    thumb.onclick = () => mainImage.src = src;
-    thumbsContainer.appendChild(thumb);
-    if (i === 0) mainImage.src = src; // First image is main
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cartStore", currentStoreName);
+    alert(`${name} (${selectedSize}) added to cart!`);
+  }
+
+  // Buy Now
+  function buyNow(name, price, image) {
+    if (!selectedSize) {
+      const product = findProductByName(name, price, image);
+      if (product) {
+        openGallery(product.images, name, price, product.sizes);
+      } else {
+        alert("Please select a size before buying.");
+      }
+      return;
+    }
+    const product = [{ name, price, image, size: selectedSize, quantity: 1 }];
+    localStorage.setItem("cart", JSON.stringify(product));
+    localStorage.setItem("cartStore", currentStoreName);
+    window.location.href = "checkout.html";
+  }
+
+  // Modal: Add to Cart
+  function addToCartFromModal() {
+    if (!selectedSize) {
+      alert("Please select a size before adding to cart.");
+      return;
+    }
+    addToCart(currentProduct.name, currentProduct.price, currentProduct.image);
+    closeGallery();
+  }
+  
+
+  // Menu Toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
   });
 
-  modal.classList.remove('hidden');
-}
+  // Open Modal
+  function openGallery(images, name, price, sizes) {
+    const modal = document.getElementById('galleryModal');
+    const thumbsContainer = document.getElementById('thumbsContainer');
+    const mainImage = document.getElementById('mainImage');
+    const sizeContainer = document.getElementById('sizeContainer');
+    const modalName = document.getElementById('modalProductName');
+    const modalPrice = document.getElementById('modalProductPrice');
 
-function closeGallery() {
-  document.getElementById('galleryModal').classList.add('hidden');
-  document.getElementById('mainImage').src = ''; // Reset
-  document.getElementById('thumbsContainer').innerHTML = ''; // Reset
-}
-  </script>
+    thumbsContainer.innerHTML = '';
+    sizeContainer.innerHTML = '';
+    selectedSize = null;
+
+    currentProduct = { name, price, image: images[0], sizes, images };
+
+    images.forEach((src, i) => {
+      const thumb = document.createElement('img');
+      thumb.src = src;
+      thumb.className = 'w-16 h-16 object-cover cursor-pointer rounded border';
+      thumb.onclick = () => {
+        mainImage.src = src;
+        currentProduct.image = src;
+      };
+      thumbsContainer.appendChild(thumb);
+      if (i === 0) mainImage.src = src;
+    });
+
+    modalName.textContent = name;
+    modalPrice.textContent = `₹${price}`;
+
+    sizes.forEach(size => {
+      const btn = document.createElement('button');
+      btn.textContent = size;
+      btn.className = 'px-3 py-1 border rounded hover:bg-gray-200';
+      btn.onclick = () => {
+        selectedSize = size;
+        document.querySelectorAll('#sizeContainer button').forEach(b => b.classList.remove('bg-black', 'text-white'));
+        btn.classList.add('bg-black', 'text-white');
+      };
+      sizeContainer.appendChild(btn);
+    });
+
+    modal.classList.remove('hidden');
+  }
+
+  // Close Modal
+  function closeGallery() {
+    document.getElementById('galleryModal').classList.add('hidden');
+    document.getElementById('mainImage').src = '';
+    document.getElementById('thumbsContainer').innerHTML = '';
+    document.getElementById('sizeContainer').innerHTML = '';
+  }
+
+  // Dummy function to match product (optional: real data fetch)
+  function findProductByName(name, price, image) {
+    // Yaha tum apna product list define karke images & sizes return kar sakte ho
+    if (name === "Denim Jacket") {
+      return {
+        images: ['images.jpeg','imgmen.png','images3.jpeg'],
+        sizes: ['S', 'M', 'L', 'XL']
+      };
+    }
+    return null;
+  }
+
+  // Search filter
+  const searchInput = document.getElementById("searchInput");
+  const productCards = document.querySelectorAll("#productGrid > div");
+  searchInput?.addEventListener("input", function () {
+    const query = this.value.toLowerCase().trim();
+    productCards.forEach(card => {
+      const name = card.querySelector("p.font-semibold")?.textContent.toLowerCase() || "";
+      card.style.display = name.includes(query) ? "" : "none";
+    });
+  });
+</script>
+
+
 
 </body>
 </html>
